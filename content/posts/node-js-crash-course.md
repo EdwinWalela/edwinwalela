@@ -1,7 +1,7 @@
 ---
 title: "Node JS crash course"
 date: 2020-09-02T12:36:39+03:00
-draft: false
+draft: true
 toc: false
 images:
 tags:
@@ -24,11 +24,12 @@ For Linux users, you can either download the binary files from the homepage or u
 
 ```bash
 sudo apt install nodejs
-
+```
+```bash
 sudo apt install npm
 ```
 
-To verify if the installation was a success run this command. The output should be the version of Node and NPM installed.
+To verify if the installation was a success run these commands. The output should be the version of Node and NPM installed.
 
 ```
 node -v 
@@ -146,3 +147,7 @@ console.log(`You need to have minimum ${experience} years to qualify`)
 ```
 
 This isn't a complete tutorial on the Javascript Language, but it should smoothen the path ahead. 
+
+On the next article, we will develop our first REST API.
+
+Cheers.
