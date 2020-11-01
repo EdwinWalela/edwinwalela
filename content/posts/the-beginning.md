@@ -13,7 +13,7 @@ tags:
 console.log("hello world")
 ```
 
-My journey into Web development began with Javascript and It's a choice I am quite proud of. At the time, I wasn't fully aware of its capabilites. Every once in a while I marvel at the endless possiblities it has to offer.
+My journey into Web development began with Javascript and It's a choice I am quite proud of. At the time, I wasn't fully aware of its capabilites. Every once in a while I marvel at the endless possiblities it has to offer. 
 
 ### Why Javascript?
 
@@ -25,14 +25,16 @@ Learning by doing.
 
 Writing software that people (or myself) get to use is something I live for. I recently discoverd that helping others do the same is something I enjoy too. My goal is to share the knowledge I've acquired, engage with and inspire other developers to do the same.
 
+Articles will feature writing, testing and deploying server-side applications using NodeJS. Some of the areas I'll cover include web crawiling, sockets, Discord bots and database hosting among others.
 
 ### Target Audience
 
-Learning the fundamentals of a language before diving into projects is the best way to avoid the frustrations of debugging code. The first post will feature a crash-course which I believe will be a good way to kick off this journey. Therefore, anyone with prior programming experience in any other language will be able to follow along.
+Learning the fundamentals of a language before diving into projects is the best way to avoid frustrations when debugging code. The first article will feature a crash-course which I believe will be a good way to kick off this journey. Therefore, anyone with prior programming experience in any other language will be able to follow along.
 
 The crash-course will only cover the basics of the language. As we progress through different projects, you will get to learn more.
 
 
+> Some ideas may seem impossible but one day they will feel inevitable.
 
 
-#### Buckle up, the journey is about to start...
+#### Buckle up, the journey is about to begin...
