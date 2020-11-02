@@ -1,7 +1,7 @@
 ---
 title: "Callback Functions"
-date: 2020-09-03T12:36:39+03:00
-draft: true
+date: 2020-11-01T12:00:00+03:00
+draft: false
 toc: false
 images:
 tags:
@@ -68,6 +68,24 @@ findUser(1,(username)=>{
 ```
 
 Both of these are valid methods of using callback functions. However, you'll find that I'll be opting for the second method (just prefference).
+
+Another scenario where callback functions are used is in Arrays `forEach` method.
+
+```javascript
+let arr = ["🍊","🍍","🍏"]
+
+arr.forEach(function(fruit){
+  console.log(fruit)
+})
+// or
+arr.forEach((fruit)=>{
+  console.log(fruit)
+})
+
+// Output : 🍊 🍍 🍏
+```
+
+As the method's name suggests, *for each* item in the array, call this function. In our case, we have defined the function on the parameter list which takes in an single item in the array and prints it to the console.
 
 Callback functions are heavily used in Javascript so an understanding of what they are and when to use them goes a long way.
 

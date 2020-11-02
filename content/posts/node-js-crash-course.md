@@ -1,7 +1,7 @@
 ---
 title: "Node JS crash course"
-date: 2020-09-02T12:36:39+03:00
-draft: true
+date: 2020-11-01T09:00:00+03:00
+draft: false
 toc: false
 images:
 tags:
@@ -60,7 +60,7 @@ npm init
 
  The entry point we shall leave it as `index.js`. Skip the test command, git repository and keywords using `enter`.
 
- Once we are done, we will be prompted to confirm our input, so hit the `enter` key.
+ Once we are done, we will be prompted to confirm our input, so hit the `enter` key. Later on, we will be using `npm install` to install 3rd-Party libraries.
 
 
 ### Hello world
@@ -123,7 +123,8 @@ for(let i = 0; i < person.skills.length; i++){
   console.log(person.skills[i])
 }
 
-person.skills.forEach(skill=>{
+// Loop through an array
+person.skills.forEach((skill)=>{
   console.log(skill)
 })
 
@@ -139,16 +140,9 @@ function sum(x,y){
   return x + y
 }
 
-const add = (x,y) =>{ // Arrow functions 
-  return x + y
-}
-
 let result = sum(3,4) // returns 7
 
-result = add(3,4); // returns 7
-
-console.log("3 + 4 = "+result)   // 3 + 4 = 7
-console.log(`3 + 4 = ${result}`) // 3 + 4 = 7
+console.log("3 + 4 = "+result)
 
 // String concatenation
 let experience = 5;
