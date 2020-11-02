@@ -1,7 +1,7 @@
 ---
 title: "Callback Functions"
 date: 2020-09-03T12:36:39+03:00
-draft: false
+draft: true
 toc: false
 images:
 tags:
