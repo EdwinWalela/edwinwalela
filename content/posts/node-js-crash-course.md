@@ -1,7 +1,7 @@
 ---
 title: "Node JS crash course"
 date: 2020-11-01T09:00:00+03:00
-draft: false
+draft: true
 toc: false
 images:
 tags:
@@ -54,13 +54,13 @@ Once inside our folder we need to initialze our Node JS project.
 npm init
 ```
 
- This will take through the process of seting up our project. First we define a name for our project. The name already has a default name so we can procceed by pressing `enter`.
+ This will take through the process of seting up our project. First we define a name for our project. The project already has a default name so we can procceed by pressing `enter`.
 
  There is also no need of specifying the version, so procceed by pressing `enter`. The description field will help others who might interact with this project to know what it's about.
 
- The entry point we shall leave it as `index.js`. Skip the test command, git repository and keywords using `enter`.
-
- Once we are done, we will be prompted to confirm our input, so hit the `enter` key. Later on, we will be using `npm install` to install 3rd-Party libraries.
+ The entry point we shall leave it as `index.js`. Skip the test command, git repository and keywords using `enter`. Once done, you'll be prompted to confirm, the `enter` key to accept the changes. 
+ 
+ Later on, we will be using the command `npm install` to install 3rd-Party libraries.
 
 
 ### Hello world
@@ -96,7 +96,7 @@ const password = "@(*jaKA.?!"
 
 age = 11 // Changing the value of a predefined variable
 
-password = "!23.3@=PO&" // Will result in an error (constant variables can not be changed)
+password = "!23.3@=PO&" // This will throw an error (constant variables can not be changed)
 
 // Arrays
 let arr = [1,2,3,0.6,9,11.830]
@@ -124,6 +124,10 @@ for(let i = 0; i < person.skills.length; i++){
 }
 
 // Loop through an array
+person.skills.forEach(function(skill){
+  console.log(skill)
+})
+// Or
 person.skills.forEach((skill)=>{
   console.log(skill)
 })

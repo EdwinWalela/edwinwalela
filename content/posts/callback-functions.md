@@ -1,16 +1,15 @@
 ---
 title: "Callback Functions"
 date: 2020-11-01T12:00:00+03:00
-draft: false
+draft: true
 toc: false
 images:
 tags:
-  - "Callbacks"
-  - "Node JS"
-  - "Javascript"
+  - "callback-functions"
+  - "javascript"
 ---
 
-Callback functions are quite common when programming with Javascript. As the name suggests, these are functions which are called after a certain task is completed. Callbacks are passed to other functions as parameters and are executed once the function it was passed into has finished execution.
+Callback functions are quite common when programming with Javascript. As the name suggests, these are functions which are called after a certain task is completed. Callbacks are passed to other functions as arguments and are executed a certain task has finished execution.
 
 An example of a scenario where callback functions can be used is when retrieving records from a database.
 
@@ -23,12 +22,10 @@ function printName(name){
 }
 ```
 
-`printName` will be called once we retrieve a record from the database. The function takes in a parameter `name` and logs it onto the console.
+`printName` should be called once we retrieve a record from the database. The function takes in a `name` parameter and logs it onto the console.
 
 
-Our second function, `findUser` is responsible for querying the database and finding a `user` based on the `userId` field. 
-
-`findUser` takes in two parameters, the `userID` and `printName` (a callback function). 
+Our second function, `findUser` is responsible for querying the database and finding a `user` based on the `userId` field. This function takes in two parameters, the `userID` and `printName` (a callback function). 
 
 ```javascript
 function findUser(userId,printName){ 
@@ -46,12 +43,14 @@ function findUser(userId,printName){
 ```
 
 
-We want to print the user's name once we find the record. So after getting a result from the database, we call the function `printName`
+We want to print the user's name once we find the record. So after getting a result from the database, we call the function `printName` and pass the name property of the user object as an argument.
 
 There are two ways in which we can call the function `findUser`. Either by passing our predefined function `printName` as a parameter
 
 ```javascript
 findUser(1,printName)
+//       ^     ^
+//   userID  callback
 ```
 
 or by defining the function on the parameter list.
@@ -69,7 +68,7 @@ findUser(1,(username)=>{
 
 Both of these are valid methods of using callback functions. However, you'll find that I'll be opting for the second method (just prefference).
 
-Another scenario where callback functions are used is in Arrays `forEach` method.
+Another scenario where callback functions are used is in Array's `forEach` method.
 
 ```javascript
 let arr = ["🍊","🍍","🍏"]
@@ -81,14 +80,13 @@ arr.forEach(function(fruit){
 arr.forEach((fruit)=>{
   console.log(fruit)
 })
-
 // Output : 🍊 🍍 🍏
 ```
 
-As the method's name suggests, *for each* item in the array, call this function. In our case, we have defined the function on the parameter list which takes in an single item in the array and prints it to the console.
+As the method's name suggests, *for each* item in the array, call this function. In our case, we have defined the function on the parameter list which takes each item in the array and prints it on the console.
 
 Callback functions are heavily used in Javascript so an understanding of what they are and when to use them goes a long way.
 
-Next we will look at Promises before starting on building a REST API.
+Next up, we finally get to build a REST API. Hold on tight.
 
-Cheers.
+Cheers. 
