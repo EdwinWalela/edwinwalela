@@ -53,6 +53,14 @@ paginate     = 10
     name       = "Posts"
     url        = "/posts"
 
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/edwinwalela"
+    
+  [[params.social]]
+    name = "email"
+    url  = "mailto:edwinwalela@gmail.com"
+
 
 [build]
 publish = "public"
