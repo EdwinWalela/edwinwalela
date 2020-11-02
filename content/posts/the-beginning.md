@@ -13,7 +13,7 @@ tags:
 console.log("hello world")
 ```
 
-My journey into Web development began with Javascript and It's a choice I am quite proud of. At the time, I wasn't fully aware of its capabilites. Every once in a while I marvel at the endless possiblities it has to offer. 
+My journey into Web development began with Javascript and It's a choice I am quite proud of. At the time, I wasn't fully aware of its capabilities. Every once in a while I marvel at the endless possibilities  it has to offer. 
 
 ### Why Javascript?
 
@@ -23,9 +23,9 @@ As a developer, one needs to be *Language Agnostic*. There isn't a 'superior' or
 
 Learning by doing.
 
-Writing software that people (or myself) get to use is something I live for. I recently discoverd that helping others do the same is something I enjoy too. My goal is to share the knowledge I've acquired, engage with and inspire other developers to do the same.
+Writing software that people (or myself) get to use is something I live for. I recently discovered that helping others do the same is something I enjoy too. My goal is to share the knowledge I've acquired, engage with and inspire other developers to do the same.
 
-Articles will feature writing, testing and deploying server-side applications using NodeJS. Some of the areas I'll cover include web crawiling, sockets, Discord bots and database hosting among others.
+Articles will feature writing, testing and deploying server-side applications using NodeJS. Some of the areas I'll cover include web crawling, sockets, Discord bots and database hosting among others.
 
 ### Target Audience
 
