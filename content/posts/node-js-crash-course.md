@@ -88,10 +88,15 @@ We will now go through the basics of the Javascript language. As I mentioned ear
 This cheat sheet only covers the basics and it's purpose is to act as refference material. Prior programming experience in whichever language is essential.
 
 ```javascript
-// Variables
+// Declaring variables
 let age = 10
 let name = "edwin"
 let isExpired = false
+const password = "@(*jaKA.?!"
+
+age = 11 // Changing the value of a predefined variable
+
+password = "!23.3@=PO&" // Will result in an error (constant variables can not be changed)
 
 // Arrays
 let arr = [1,2,3,0.6,9,11.830]
@@ -134,7 +139,13 @@ function sum(x,y){
   return x + y
 }
 
-let result = sum(3,4)
+const add = (x,y) =>{ // Arrow functions 
+  return x + y
+}
+
+let result = sum(3,4) // returns 7
+
+result = add(3,4); // returns 7
 
 console.log("3 + 4 = "+result)   // 3 + 4 = 7
 console.log(`3 + 4 = ${result}`) // 3 + 4 = 7
@@ -147,7 +158,5 @@ console.log(`You need to have minimum ${experience} years to qualify`)
 ```
 
 This isn't a complete tutorial on the Javascript Language, but it should smoothen the path ahead. 
-
-On the next article, we will develop our first REST API.
 
 Cheers.
