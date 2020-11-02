@@ -61,6 +61,11 @@ paginate     = 10
     name = "email"
     url  = "mailto:edwinwalela@gmail.com"
 
+  [[params.social]]
+    name = "email"
+    url  = "mailto:edwinwalela@gmail.com"
+
+
 
 [build]
 publish = "public"

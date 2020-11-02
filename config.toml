@@ -60,5 +60,10 @@ paginate     = 10
     url  = "https://github.com/edwinwalela"
     
   [[params.social]]
+    name = "medium"
+    url  = "https://medium.com/@edwinwalela"
+
+  [[params.social]]
     name = "email"
     url  = "mailto:edwinwalela@gmail.com"
+
