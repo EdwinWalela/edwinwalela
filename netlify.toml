@@ -20,8 +20,8 @@ paginate     = 10
   enableSharingButtons = false
 
   # Metadata mostly used in document's head
-  description = "My new homepage or blog"
-  keywords = "homepage, blog"
+  description = "A journey through code"
+  keywords = "webdevelopment, blog, webdeveloper"
   images = [""]
 
   # Default theme "light" or "dark"
