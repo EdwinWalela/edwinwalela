@@ -20,7 +20,7 @@ paginate     = 10
   enableSharingButtons = false
 
   # Metadata mostly used in document's head
-  description = "A journey through code"
+  description = "A Journey Through Code"
   keywords = "webdevelopment, blog, webdeveloper"
   images = [""]
 
