@@ -48,19 +48,19 @@ mkdir node-crashcourse
 cd node-crashcourse
 ```
 
-Once inside our folder we need to initialze our Node JS project.
+Once inside our folder we need to initialize our Node JS project.
 
 ```bash
 npm init
 ```
 
- This will take through the process of seting up our project. First we define a name for our project. The project already has a default name so we can procceed by pressing `enter`.
+ This will take through the process of setting up our project. First we define a project name. The project already has a default name so we can proceed by pressing `enter`.
 
- There is also no need of specifying the version, so procceed by pressing `enter`. The description field will help others who might interact with this project to know what it's about.
+ There is also no need of specifying the version, so proceed by pressing `enter`. The description field will help others who might interact with this project to know what it's about.
 
  The entry point we shall leave it as `index.js`. Skip the test command, git repository and keywords using `enter`. Once done, you'll be prompted to confirm, hit the `enter` key to accept the changes. 
  
- Later on, we will be using the command `npm install` to install 3rd-Party libraries.
+ Later on, we will be using the command `npm install` to install 3rd-Party libraries and frameworks.
 
 
 ### Hello world
@@ -87,7 +87,7 @@ We will now go through the basics of the Javascript language. As I mentioned ear
 
 There are numerous code editors available but I prefer [Visual Studio Code](https://code.visualstudio.com/) due to the extensions it has to offer which makes coding a breeze.
 
-This cheat sheet only covers the basics and it's purpose is to act as refference material. Prior programming experience in whichever language is essential.
+This cheat sheet only covers the basics and its purpose is to act as reference material. Prior programming experience in whichever language is essential.
 
 ```javascript
 // Declaring variables
