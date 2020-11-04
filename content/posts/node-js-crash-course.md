@@ -128,7 +128,8 @@ let carsArr = [
 console.log(person.age) // 15
 console.log(person.skills[2]) // java
 console.log(person.isRegistered) // false
-console.log(person.skills) // [ 'javascript', 'php', 'java', 'c++' ]
+
+console.log(carsArr[0].model) // bmw
 
 //-- Loops --//
 
@@ -148,11 +149,23 @@ while(i > length){
 //-- If statements --//
 
 let userAge = 11
+let skill = "html"
 
 if(userAge < 18){
   console.log("Minimum age requirement not reached")
 }else{
   console.log("Minimum age requirement reached")
+}
+
+// AND operator (&&)
+
+if(userAge > 18 && skill == "html"){
+  console.log("Both requirements met")
+}
+
+// OR operator (||)
+if(userAge > 18 || skill == "html"){
+  console.log("One requirement met")
 }
 
 //-- Functions --//
@@ -201,8 +214,8 @@ class Person{
   // Method called when we instantiate the class (create an object)
   constructor(name,skills){
     // properties
-    this.name = "";
-    this.skills = []
+    this.name = name;
+    this.skills = skills
     this.verified = false;
   }
   // methods (functions)
@@ -225,6 +238,8 @@ if(isVerified){
 
 // Calling a method of the object
 person1.verify();
+
+isVerified = person1.verified;
 
 if(isVerified){
   console.log("user is verified")
