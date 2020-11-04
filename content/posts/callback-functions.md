@@ -47,7 +47,7 @@ We want to print the user's name once we find the record. So after getting a res
 
 ### Arguments vs Parameters
 
-An argument is data we pass to function when calling it while a parameter is a local variable defined inside a function (can only be accesed inside the function)
+An argument is data we pass to function when calling it while a parameter is a local variable defined inside a function (can only be accessed inside the function)
 
 ```js
 //              parameter     
@@ -88,7 +88,7 @@ findUser(1,(username)=>{
 })
 ```
 
-Both of these are valid methods of using callback functions. However, you'll find that I'll be opting for defining the function on the argument (just prefference).
+Both of these are valid methods of using callback functions. However, you'll find that I'll be opting for defining the function on the argument (just preference).
 
 ### Array.ForEach
 
