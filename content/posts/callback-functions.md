@@ -1,7 +1,7 @@
 ---
 title: "Callback Functions"
 date: 2020-11-01T12:00:00+03:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
@@ -9,7 +9,7 @@ tags:
   - "javascript"
 ---
 
-Callback functions are quite common when programming with Javascript. As the name suggests, these are functions which are called after a certain task is completed. Callbacks are passed to other functions as arguments and are executed a certain task has finished execution.
+Callback functions are quite common when programming with Javascript. As the name suggests, these are functions which are called after a certain task is completed. Callbacks are passed to other functions as arguments and are executed once a certain task has finished execution.
 
 An example of a scenario where callback functions can be used is when retrieving records from a database.
 
@@ -45,7 +45,29 @@ function findUser(userId,printName){
 
 We want to print the user's name once we find the record. So after getting a result from the database, we call the function `printName` and pass the name property of the user object as an argument.
 
-There are two ways in which we can call the function `findUser`. Either by passing our predefined function `printName` as a parameter
+### Arguments vs Parameters
+
+An argument is data we pass to function when calling it while a parameter is a local variable defined inside a function (can only be accesed inside the function)
+
+```js
+//              parameter     
+//                  v
+function printName(name){
+  console.log(name)
+}
+
+console.log(name) // Uncaught ReferenceError: name is not defined
+
+// Calling the function
+printName("edwin") // output: "edwin"
+//           ^
+//        Argument 
+
+```
+
+### Calling the function
+
+There are two ways in which we can call the function `findUser`. Either by passing our predefined function `printName` as an argument:
 
 ```javascript
 findUser(1,printName)
@@ -53,7 +75,7 @@ findUser(1,printName)
 //   userID  callback
 ```
 
-or by defining the function on the parameter list.
+or by defining the function on the argument list.
 
 ```javascript
 findUser(1,function(username){
@@ -66,7 +88,9 @@ findUser(1,(username)=>{
 })
 ```
 
-Both of these are valid methods of using callback functions. However, you'll find that I'll be opting for the second method (just prefference).
+Both of these are valid methods of using callback functions. However, you'll find that I'll be opting for defining the function on the argument (just prefference).
+
+### Array.ForEach
 
 Another scenario where callback functions are used is in Array's `forEach` method.
 
@@ -83,7 +107,7 @@ arr.forEach((fruit)=>{
 // Output : 🍊 🍍 🍏
 ```
 
-As the method's name suggests, *for each* item in the array, call this function. In our case, we have defined the function on the parameter list which takes each item in the array and prints it on the console.
+As the method's name suggests, *for each* item in the array, call this function. In our case, we have defined the function on the argument list which takes each item in the array and prints it on the console.
 
 Callback functions are heavily used in Javascript so an understanding of what they are and when to use them goes a long way.
 
