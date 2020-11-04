@@ -132,6 +132,10 @@ console.log(person.skills) // [ 'javascript', 'php', 'java', 'c++' ]
 
 //-- Loops --//
 
+for(let x = 0; x < 10;x++){
+  console.log(x)
+}
+
 let arr2 = [1,2,3,4,5]
 let length = arr2.length; // Get array length
 let i = 0;
