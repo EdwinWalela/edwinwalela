@@ -1,6 +1,6 @@
 ---
 title: "Node JS crash course"
-date: 2020-11-03T09:00:00+03:00
+date: 2020-11-05T14:00:00+03:00
 draft: false
 toc: false
 images:
