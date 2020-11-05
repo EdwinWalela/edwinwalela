@@ -40,6 +40,8 @@ npm -v
 ```
 
 ### Project Setup
+There are numerous code editors available but I prefer [Visual Studio Code](https://code.visualstudio.com/) due to the extensions it has to offer which makes coding a breeze.
+
 We shall first create a directory for our project
 
 ```bash 
@@ -85,12 +87,12 @@ node index.js
 
 We will now go through the basics of the Javascript language. As I mentioned earlier, Node JS is just an *environment* of executing Javascript Code.
 
-There are numerous code editors available but I prefer [Visual Studio Code](https://code.visualstudio.com/) due to the extensions it has to offer which makes coding a breeze.
-
 This cheat sheet only covers the basics and its purpose is to act as reference material. Prior programming experience in whichever language is essential.
 
-```javascript
-// Declaring variables
+
+#### Variables 
+
+```js
 let age = 10
 let name = "edwin"
 let isExpired = false
@@ -99,13 +101,11 @@ const password = "@(*jaKA.?!"
 age = 11 // Changing the value of a predefined variable
 
 password = "!23.3@=PO&" // This will throw an error (constant variables can not be changed)
+```
 
-//--  Arrays --//
+#### Objects
 
-let arr = [1,2,3,0.6,9,11.830]
-let cars = ["toyota","bmw", "honda"]
-
-// Objects
+```js
 let person = {
   age:15,
   nationality:"Kenyan",
@@ -128,11 +128,11 @@ let carsArr = [
 console.log(person.age) // 15
 console.log(person.skills[2]) // java
 console.log(person.isRegistered) // false
-
 console.log(carsArr[0].model) // bmw
+```
 
-//-- Loops --//
-
+#### Loops
+```js
 for(let x = 0; x < 10;x++){
   console.log(x)
 }
@@ -141,13 +141,15 @@ let arr2 = [1,2,3,4,5]
 let length = arr2.length; // Get array length
 let i = 0;
 
-while(i > length){
+while(i < length){
   console.log(numbers[i])
   i++; // Increment i by 1
 }
+```
 
-//-- If statements --//
+#### IF statements
 
+```js
 let userAge = 11
 let skill = "html"
 
@@ -167,9 +169,11 @@ if(userAge > 18 && skill == "html"){
 if(userAge > 18 || skill == "html"){
   console.log("One requirement met")
 }
+```
 
-//-- Functions --//
+#### Functions
 
+```js
 function sum(x,y){
   return x + y
 }
@@ -182,9 +186,11 @@ sum = (x,y) =>{
 let result = sum(3,4)
 
 console.log("3 + 4 = "+result)
+```
 
-//-- Array methods --//
+#### Arrays
 
+```js
 let numbers = [1,2,3,4,5,6];
 
 let arrLength = numbers.length // Get array length = 6
@@ -201,15 +207,19 @@ person.skills.forEach(function(skill){
 person.skills.forEach((skill)=>{
   console.log(skill)
 })
+```
 
-// String concatenation
+#### String concatenation
+```js
 let experience = 5;
 
 console.log("You need to have minimum "+experience+" years to qualify")
 console.log(`You need to have minimum ${experience} years to qualify`)
+```
 
-//-- Classes --//
+#### Classes
 
+```js
 class Person{
   // Method called when we instantiate the class (create an object)
   constructor(name,skills){
@@ -228,7 +238,7 @@ let person1 = new Person("edwin",["html","css"])
 let person2 = new Person("walela",["php","python"])
 
 //Accessing a property of the object
-let isVerified = person1.verified;
+let isVerified = person1.verified; // false
 
 if(isVerified){
   console.log("user is verified")
@@ -239,8 +249,14 @@ if(isVerified){
 // Calling a method of the object
 person1.verify();
 
-isVerified = person1.verified;
+isVerified = person1.verified; // true
 
+if(isVerified == true){
+  console.log("user is verified")
+}else{
+  console.log("User is not verified")
+}
+// The above code can be shortened to
 if(isVerified){
   console.log("user is verified")
 }else{
