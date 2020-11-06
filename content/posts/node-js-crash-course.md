@@ -1,6 +1,6 @@
 ---
 title: "Node JS crash course"
-date: 2020-11-05T14:00:00+03:00
+date: 2020-11-06T13:00:00+03:00
 draft: false
 toc: false
 images:
@@ -56,7 +56,9 @@ Once inside our folder we need to initialize our Node JS project.
 npm init
 ```
 
- This will take through the process of setting up our project. First we define a project name. The project already has a default name so we can proceed by pressing `enter`.
+ This will take us through the process of setting up our project. 
+ 
+ First we define a project name. The project already has a default name so we can proceed by pressing `enter`.
 
  There is also no need of specifying the version, so proceed by pressing `enter`. The description field will help others who might interact with this project to know what it's about.
 
@@ -71,7 +73,7 @@ It's time to write our first line of code in Javascript.
 
 Create a new file `index.js`
 
-To print `hello world` onto the console we shall type this line of code.
+To print `hello world` on the console we shall type this line of code.
 
 ```Javascript
 console.log("hello world")
@@ -94,6 +96,7 @@ This cheat sheet only covers the basics and its purpose is to act as reference m
 
 ```js
 let age = 10
+let weight = 27.439 
 let name = "edwin"
 let isExpired = false
 const password = "@(*jaKA.?!"
@@ -195,8 +198,10 @@ let numbers = [1,2,3,4,5,6];
 
 let arrLength = numbers.length // Get array length = 6
 
+// Add item to array
 numbers.push(7) // [1,2,3,4,5,6,7]
 
+// Remove last item from array
 numbers.pop() // [1,2,3,4,5,6]
 
 // Loop through array 
@@ -240,17 +245,6 @@ let person2 = new Person("walela",["php","python"])
 //Accessing a property of the object
 let isVerified = person1.verified; // false
 
-if(isVerified){
-  console.log("user is verified")
-}else{
-  console.log("User is not verified")
-}
-
-// Calling a method of the object
-person1.verify();
-
-isVerified = person1.verified; // true
-
 if(isVerified == true){
   console.log("user is verified")
 }else{
@@ -262,8 +256,19 @@ if(isVerified){
 }else{
   console.log("User is not verified")
 }
+
+// Calling a method of the object
+person1.verify();
+
+isVerified = person1.verified; // true
+
+if(isVerified){
+  console.log("user is verified")
+}else{
+  console.log("User is not verified")
+}
 ```
 
-This isn't a complete tutorial on the Javascript Language, but it should smoothen the path ahead. 
+This isn't a complete tutorial on the Javascript Language, but it should smoothen the path ahead. Next up will be Javascript callback functions before we start building an API.
 
 Cheers.
