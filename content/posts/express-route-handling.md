@@ -1,7 +1,7 @@
 ---
 title: "Route Handling"
 date: 2020-11-01T16:00:00+03:00
-draft: false
+draft: true
 toc: false
 images:
 tags:
@@ -13,6 +13,15 @@ tags:
 The basic building blocks of an API are routes. Routes define endpoints or urls to which an API can recieve HTTP requests.
 
 Example of API routes:
+
+{{<table "table table-striped table-bordered">}}
+
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Item 1   | Item 2   | Item 3   |
+| Item 1a  | Item 2a  | Item 3a  |
+{{</table>}}
+
 
 **GET**  http://myapi.com/ - Homepage 
 
