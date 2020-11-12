@@ -1,6 +1,6 @@
 ---
 title: "Callback Functions"
-date: 2020-11-11T19:00:00+03:00
+date: 2020-11-12T10:00:00+03:00
 draft: false
 toc: false
 images:
@@ -111,7 +111,7 @@ As the method's name suggests, *for each* item in the array, call this function.
 
 ### Wrap up
 
-Callbacks are functions which are passed as arguments to other functions. They are then exected inside the function in which it was passed to. Most of the time we will be interacting with built-in functions which have callbacks as arguments (`Array.ForEach`), instead of defining our own functions (`findUser`) which take in callbacks as arguments.
+A callback is a function that's passed as an argument to another other function. It's then executed inside the function in which it was passed to. Most of the time we will be interacting with built-in functions which have callbacks as arguments (`Array.ForEach`), instead of defining our own functions (`findUser`) which take in callbacks as arguments.
 
 Callback functions are heavily used in Javascript so an understanding of what they are and when to use them goes a long way.
 
