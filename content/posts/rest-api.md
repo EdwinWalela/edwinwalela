@@ -74,7 +74,7 @@ This describes our project (information we provided when we ran the command `npm
 }
 ```
 
-The dependenies property of the `package.json` lists the dependencies of our project. In the above snippet, we can see that our project uses Express `version 4.17.1` or greater `(^)`. When we install other dependencies using `npm install [package-name]`, the package.json will be updated to indicate the new dependencies.
+The dependencies property of the `package.json` lists the dependencies of our project. In the above snippet, we can see that our project uses Express `version 4.17.1` or greater `(^)`. When we install other dependencies using `npm install [package-name]`, the `package.json` will be updated to indicate the new dependencies.
 
 ### Writing an API using Express
 
