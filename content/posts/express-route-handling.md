@@ -1,7 +1,7 @@
 ---
 title: "Route Handling"
 date: 2020-11-01T16:00:00+03:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
@@ -14,15 +14,10 @@ The basic building blocks of an API are routes. Routes define endpoints or urls 
 
 Example of API routes:
 
-{{<table "table table-striped table-bordered">}}
-
 | Header 1 | Header 2 | Header 3 |
 |----------|----------|----------|
 | Item 1   | Item 2   | Item 3   |
 | Item 1a  | Item 2a  | Item 3a  |
-{{</table>}}
-
-
 **GET**  http://myapi.com/ - Homepage 
 
 **GET**  http://myapi.com/users - list all users
@@ -46,6 +41,8 @@ The first part defines the HTTP method and the second part defines the API endpo
 **PUT**  /users/12
 
 In Express, we define our routes using the method `[http-method]()`on our API application (stored in the variable `app`) 
+
+
 
 ```js
 // GET /users
