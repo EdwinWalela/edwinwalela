@@ -14,12 +14,19 @@ The basic building blocks of an API are routes. Routes define endpoints or URLs 
 
 Example of endpoints:
 
-| HTTP method | Route                          | Description                                     |
-| ----------- | ------------------------------ | ----------------------------------------------- |
-| GET         | http://localhost:3000/users    | Return all users                                |
-| GET         | http://localhost:3000/users/1  | Return user whose ID is 1                       |
-| POST        | http://localhost:3000/users    | Save new user to the database                   |
-| PUT         | http://localhost:3000/users/12 | Update information of the user with an ID of 12 |
+```bash
+# Return all users
+GET  http://localhost:3000/users
+
+# Return user whose ID is 1
+GET  http://localhost:3000/users/1
+
+# Save new user to the database 
+POST http://localhost:3000/users
+
+# Update info of user with an ID of 12
+PUT  http://localhost:3000/users/12
+```
 
 ### Resources
 
@@ -39,13 +46,14 @@ Using the resources we've defined above, we can start coming up with the routes 
 
 ####   Restaurants' CRUD
 
-| HTTP method | Route            | Description                                          |
-| ----------- | ---------------- | ---------------------------------------------------- |
-| POST        | /restaurants     | Return all users                                     |
-| GET         | /restaurants     | Return user whose ID is 1                            |
-| GET         | /restaurants/:id | Save new user to the database                        |
-| PUT         | /restaurants/:id | Update information of the user with the ID specified |
-| DEL         | /restaurants/:id | Delete restaurant with the ID specified              |
+```bash
+POST  /restaurants      # Create new restaurant (create)
+GET   /restaurants      # Return user whose ID is 1 (read)
+GET   /restaurants/:id  # Return a restaurant based on its ID (read)
+PUT   /restaurants/:id  # Update a restaurant's info based on its ID (update)
+DEL   /restaurants/:id  # Delete restaurant based on its ID (delete) 
+```
+
 ### Route Handling
 
 To define a route using express we call the respective HTTP method on our `app` variable. Each method takes in 2 parameters, the route path, and a callback function which will be executed once a client makes the specified request to that route.
@@ -55,8 +63,8 @@ To define a route using express we call the respective HTTP method on our `app` 
 example:
 
 ```javascript
-// HTTP method				callback function
-//	 v								v
+// HTTP method	    callback function
+//	 v                      v
 app.get("/restaurants",function(request,response){
 //			   ^
 //		 route(endpoint)   	
@@ -69,8 +77,8 @@ app.post("/restaurants",function(request,response){
 
 The callback function has two parameters:
 
-- request - an object containing information about the request e.g data sent with the request 
-- response - an object used to send a response to the client once they make the request
+- **request** - an object containing information about the request e.g data sent with the request 
+- **response** - an object used to send a response to the client once they make the request
 
 Here is an example of a route which sends back an array of restaurants when a **GET** request is made on the `/restaurants` endpoint:
 
@@ -110,34 +118,38 @@ response.send({restaurants})
 
 Route parameters are used to define sections of a URL which will contain some data the API will need to process the request. For example, if we need our API to respond with a particular user depending on their user ID, we can define a route with the parameter `id`
 
-```
+```bash
 GET /restaurants/:id
-# 			 ^
-#	 route parameter	
+# 	               ^
+#	       route parameter	
 ```
 
 The above route will be matched to all the following requests:
 
-``` 
+``` bash
 GET http://localhost/restaurants/1
 GET http://localhost/restaurants/2
 GET http://localhost/restaurants/3
-		  ...
+       		  ...
 ```
 
-Parameters in express are defined using the following syntax `:parameter-name` . A route can have multiple parameters:
+Parameters in express are defined using the following syntax:
+
+`:parameter-name` 
+
+ A route can have multiple parameters:
 
 ```
 GET /restaurants/:restid/employees/:empid
 ```
 
-The above route can be used to retrieve a particular employee of a particular restaurant. The route below will return the information of the employee with an ID of `35` who works in a restaurant with an ID of `1` :
+The above route can be used to retrieve a particular employee of a particular restaurant. Here is an example of a route that will return the information of the employee with an ID of `35` who works in a restaurant with an ID of `1` :
 
 ``` 
 GET http://localhost/restaurants/4/employees/35
 ```
 
-The request parameter values are stored in the `params ` object of the `request` object of route's callback function. 
+The requests' parameter values are stored in the `params` object of the `request` object of the route's callback function. 
 
 ```javascript
 app.get("/restaurants/:id",function(request,response){
@@ -193,15 +205,17 @@ An important thing to note is that query parameters are optional, so you'll need
 app.get("/restaurants",function(request,response){
     let limit = 10 // default limit
     
-    if(typeof(req.query.limit) != undefined){
+    if(typeof req.query.limit !== "undefined"){
         // if limit is specified
         limit = req.query.limit
     } 
     
     // short-form
     let limit = req.query.limit ? req.query.limit : 10
-    //  			  ^		 			  ^			 ^
-    //         is specified?         if true    if false
+    //                ^                 ^			  ^
+    //   is limit specified?       	if true      if false
+    //                            return this  return this
+    //                                       (default value) 
     
     let sort = req.query.sort ? req.query.sort : "asc"
     ...
@@ -235,7 +249,7 @@ Now we can create a simple API capable of responding to GET requests using query
 
 Try the following routes on the browser. JSON viewer extension can be downloaded [here](https://jsonview.com/)
 
-```
+```bash
 http://localhost:3000/restaurants
 http://localhost:3000/restaurants?limit=2
 http://localhost:3000/restaurants/2
@@ -243,17 +257,21 @@ http://localhost:3000/restaurants/2
 
 ### Wrap Up
 
-An important thing to note is that all data sent via HTTP (including query strings and parameters) are in text form (string data type). To user the limit query and index parameter we need to cast them to the Number datatype. This is achieved using the function `Number()`
+An important thing to note is that all data sent via HTTP (including query strings and parameters) are in text form (string data type). To use the `limit` query and `index` parameter, we need to cast them to the Number datatype. This is achieved using JavaScript's built-in function `Number()`
 
 ```javascript
 Number(request.params.index)
+// "3" -> 3
 
 Number(request.query.limit)
+// "2" -> 2
 ```
 
 Next up will be handling POST and PUT request using express. 
 
-> Imperviable growth now, brings exponential growth later.
+> Imperceivable  growth now, brings exponential growth later 
+>
+> ~ annonymous
 
 Cheers.
 
