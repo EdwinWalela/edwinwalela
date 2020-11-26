@@ -233,7 +233,7 @@ app.get("/restaurants/:index",function(request,response){
 
 Now we can create a simple API capable of responding to GET requests using query strings and route parameters.
 
-Try the following routes on the browser. JSON viewer extension for [Chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) and  [Mozilla](https://addons.mozilla.org/en-US/firefox/addon/jsonview/).
+Try the following routes on the browser. JSON viewer extension can be downloaded [here](https://jsonview.com/)
 
 ```
 http://localhost:3000/restaurants
