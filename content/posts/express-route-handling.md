@@ -1,5 +1,5 @@
 ---
-title: "Route Handling"
+title: "Route Handling Using Express"
 date: 2020-11-26T16:00:00+03:00
 draft: false
 toc: false
@@ -30,9 +30,9 @@ PUT  http://localhost:3000/users/12
 
 ### Resources
 
-Before coming up with routes, we first need to identify resources within our API. Resources are data our API will be providing to its clients.
+Before coming up with routes, we first need to identify resources within our API. Resources are data the API will be providing to its clients.
 
-For instance, if we are to build an API responsible for providing information to a fast-food ordering mobile application, our API can have the following resources:
+For instance, an API responsible for providing information to a fast-food ordering mobile app can have the following resources:
 
 - Restaurants (restaurant name, location, contacts)
 
@@ -40,9 +40,9 @@ For instance, if we are to build an API responsible for providing information to
 
 - Orders (restaurant, user, items)
 
-By convention we will use nouns in their plural form to represent our resources.  The resources we come up with for our API can be directly mapped to the tables/collections our database will have.  
+By convention nouns are used in their plural form to represent resources.  Resources can be directly mapped to the tables/collections the database will have.  
 
-Using the resources we've defined above, we can start coming up with the routes for our API. A good rule of thumb is to create **CRUD** (Create,Read,Update,Delete) routes for each resource.
+Using the resources defined above, we can start coming up with the routes for the API. A good rule of thumb is to create **CRUD** (Create,Read,Update,Delete) routes for each resource.
 
 ####   Restaurants' CRUD
 
@@ -56,7 +56,7 @@ DEL   /restaurants/:id  # Delete restaurant based on its ID (delete)
 
 ### Route Handling
 
-To define a route using express we call the respective HTTP method on our `app` variable. Each method takes in 2 parameters, the route path, and a callback function which will be executed once a client makes the specified request to that route.
+To define a route using express we call the respective HTTP method on the`app` variable. Each method takes in 2 parameters, the route path, and a callback function which will be executed once a client makes the specified request to that route.
 
 ```app.[http-method]("route",callbackfunction)```
 
@@ -97,11 +97,12 @@ The `.send()` method is used to *send* back a response when a request is made to
 
 The assumption is that we have queried a database and got back an array of restaurants.
 
-To send back a JSON response, we create an object which has a `restaurants` attribute whose value is an array of restaurants:
+To send back a JSON response, we create an object which has a `restaurants` key whose value is an array of restaurants:
 
 ```javascript
-{
-	restaurants : ["dominos","subway","kfc"]
+{  //   key          value (array)
+   //    v             v
+	restaurants : restaurants
 }
 
 // the above can be shortened to
@@ -114,9 +115,17 @@ The object is then passed as an argument to the `.send()` method.
 response.send({restaurants})
 ```
 
+Response received by the client:
+
+```javascript
+{
+	restaurants:["dominos","subway","kfc"]
+}
+```
+
 ### Route Parameters
 
-Route parameters are used to define sections of a URL which will contain some data the API will need to process the request. For example, if we need our API to respond with a particular user depending on their user ID, we can define a route with the parameter `id`
+Route parameters are used to define sections of a URL which will contain some data that the API will need to process the request. For example, if we need our API to return a particular user depending on their user ID, we can define a route with the parameter `id`
 
 ```bash
 GET /restaurants/:id
@@ -143,13 +152,15 @@ Parameters in express are defined using the following syntax:
 GET /restaurants/:restid/employees/:empid
 ```
 
-The above route can be used to retrieve a particular employee of a particular restaurant. Here is an example of a route that will return the information of the employee with an ID of `35` who works in a restaurant with an ID of `1` :
+The above route can be used to retrieve a particular `employee` of a particular `restaurant`. 
+
+Here is an example of a route that will return the information of the employee with an ID of `35` who works in a restaurant with an ID of `1` :
 
 ``` 
 GET http://localhost/restaurants/4/employees/35
 ```
 
-The requests' parameter values are stored in the `params` object of the `request` object of the route's callback function. 
+The requests' parameter values are stored in the `params` object of the `request` object (parameter of the callback function)
 
 ```javascript
 app.get("/restaurants/:id",function(request,response){
@@ -165,36 +176,36 @@ app.get("/restaurants/:restid/employees/:empid",function(request,response){
 
 ### Query Strings
 
-Almost similar to route parameters, however query strings are mostly used to "format" the response. For instance query strings can be used to filter,sort or limit the data sent back as a response. Query strings are optional and do not appear as part of the route definition. 
+Almost similar to route parameters, however query strings are mostly used to "format" the response. For instance query strings can be used to filter,sort or limit the data sent back as a response. They are defined by the programmer and are optional so they don't appear as part of the route definition. 
 
 ```
 GET /restaurants
 ```
 
-The above endpoint can have the following query parameters:
+The above endpoint can have the following queries:
 
 - limit - defines the maximum number of restaurants to send in the response
 - sort - sort the results in ascending / descending order
 
-Query parameters are defined at the end of the route by a question mark `?` then the query parameter name. They are specified by the client when making the request:
+Queries are defined at the end of the route by a question mark `?` then the query name. They are specified by the client when making the request:
 
 ````
 http://localhost:3000/restaurants?limit=10
 http://localhost:3000/restaurants?sort=asc
 ````
 
-Query parameters can be chained using the `&` symbol:
+Queries can be chained using the `&` symbol:
 
 ```
 http://localhost:3000/restaurants?limit=10&sort=asc
 ```
 
-To access the query parameters in express we use the `query` object of the `request` object of the route's callback function:
+To access the query's value in express, we use the `query` object of the `request` object (callback function parameter) :
 
 ```javascript
 app.get("/restaurants",function(request,response){
-    let limit = req.query.limit
-    let sort = req.query.sort
+    let limit = request.query.limit
+    let sort = request.query.sort
     ...
 })
 ```
@@ -239,6 +250,7 @@ app.get("/restaurants",function(request,response){
     let restaurants = DBrestaurants.slice(0,limit)
     response.send({restaurants})
 })
+
 app.get("/restaurants/:index",function(request,response){
 	let restaurant = DBrestaurants[Number(request.params.index)]
     response.send({restaurant})
@@ -257,21 +269,23 @@ http://localhost:3000/restaurants/2
 
 ### Wrap Up
 
-An important thing to note is that all data sent via HTTP (including query strings and parameters) are in text form (string data type). To use the `limit` query and `index` parameter, we need to cast them to the Number datatype. This is achieved using JavaScript's built-in function `Number()`
+An important thing to note is that all data sent via HTTP (including query strings and parameters) are in text-form (string data-type). To use the `limit` query and `index` parameter, we need to cast them to the Number datatype. 
+
+This is achieved using JavaScript's built-in function `Number()` which converts the argument passed to it and returns its equivalent `Number` datatype:
 
 ```javascript
-Number(request.params.index)
-// "3" -> 3
+// request.params.index == "3"
+Number(request.params.index) // returns 3
 
-Number(request.query.limit)
-// "2" -> 2
+// request.params.limit == "2"
+Number(request.query.limit) // returns 2
 ```
 
 Next up will be handling POST and PUT request using express. 
 
 > Imperceivable  growth now, brings exponential growth later 
 >
-> ~ annonymous
+> ~ anonymous
 
 Cheers.
 
