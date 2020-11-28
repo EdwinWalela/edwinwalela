@@ -1,6 +1,6 @@
 ---
 title: "Route Handling Using Express"
-date: 2020-11-26T16:00:00+03:00
+date: 2020-11-28T10:40:00+03:00
 draft: false
 toc: false
 images:
@@ -40,7 +40,7 @@ For instance, an API responsible for providing information to a fast-food orderi
 
 - Orders (restaurant, user, items)
 
-By convention nouns are used in their plural form to represent resources.  Resources can be directly mapped to the tables/collections the database will have.  
+By convention nouns are used in their plural form to represent resources.  These can be directly mapped to the tables/collections the database will have.  
 
 Using the resources defined above, we can start coming up with the routes for the API. A good rule of thumb is to create **CRUD** (Create,Read,Update,Delete) routes for each resource.
 
@@ -56,7 +56,7 @@ DEL   /restaurants/:id  # Delete restaurant based on its ID (delete)
 
 ### Route Handling
 
-To define a route using express we call the respective HTTP method on the`app` variable. Each method takes in 2 parameters, the route path, and a callback function which will be executed once a client makes the specified request to that route.
+To define a route using express we call the respective HTTP method on the`app` variable. Each method takes in 2 parameters: the route path, and a callback function which will be executed once a client makes a request to that route.
 
 ```app.[http-method]("route",callbackfunction)```
 
@@ -77,7 +77,7 @@ app.post("/restaurants",function(request,response){
 
 The callback function has two parameters:
 
-- **request** - an object containing information about the request e.g data sent with the request 
+- **request** - an object containing information about the request e.g data sent with the request (query strings, route parameters etc.) 
 - **response** - an object used to send a response to the client once they make the request
 
 Here is an example of a route which sends back an array of restaurants when a **GET** request is made on the `/restaurants` endpoint:
@@ -97,7 +97,7 @@ The `.send()` method is used to *send* back a response when a request is made to
 
 The assumption is that we have queried a database and got back an array of restaurants.
 
-To send back a JSON response, we create an object which has a `restaurants` key whose value is an array of restaurants:
+To send back a JSON response, we create an object which has a `restaurants` key whose value is the array of restaurants:
 
 ```javascript
 {  //   key          value (array)
@@ -142,7 +142,7 @@ GET http://localhost/restaurants/3
        		  ...
 ```
 
-Parameters in express are defined using the following syntax:
+Parameters in Express are defined using the following syntax:
 
 `:parameter-name` 
 
@@ -176,7 +176,9 @@ app.get("/restaurants/:restid/employees/:empid",function(request,response){
 
 ### Query Strings
 
-Almost similar to route parameters, however query strings are mostly used to "format" the response. For instance query strings can be used to filter,sort or limit the data sent back as a response. They are defined by the programmer and are optional so they don't appear as part of the route definition. 
+Almost similar to route parameters, however query strings are mostly used to "format" the response. 
+
+For instance query strings can be used to filter,sort or limit the data sent back as a response. They are defined by the programmer and are optional so they don't appear as part of the route definition. 
 
 ```
 GET /restaurants
@@ -210,7 +212,7 @@ app.get("/restaurants",function(request,response){
 })
 ```
 
-An important thing to note is that query parameters are optional, so you'll need to provide a default value in your code:
+Query strings are optional (the client might or might not include them in the request), so you'll need to provide a default value in your code:
 
 ```javascript
 app.get("/restaurants",function(request,response){
@@ -271,7 +273,7 @@ http://localhost:3000/restaurants/2
 
 An important thing to note is that all data sent via HTTP (including query strings and parameters) are in text-form (string data-type). To use the `limit` query and `index` parameter, we need to cast them to the Number datatype. 
 
-This is achieved using JavaScript's built-in function `Number()` which converts the argument passed to it and returns its equivalent `Number` datatype:
+This is achieved using JavaScript's built-in function `Number()` which converts the argument passed to it to its equivalent `Number` datatype:
 
 ```javascript
 // request.params.index == "3"
